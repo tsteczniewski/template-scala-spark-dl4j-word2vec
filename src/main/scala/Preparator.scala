@@ -11,16 +11,8 @@ class Preparator
   extends PPreparator[TrainingData, PreparedData] {
 
   def prepare(sc: SparkContext, trainingData: TrainingData): PreparedData = {
-    new PreparedData(
-      phrases = trainingData.labeledPhrases.map { _.phrase },
-      labeledPhrases = trainingData.labeledPhrases,
-      labels = "0" :: "1" :: "2" :: "3" :: "4" :: Nil
-    )
+    new PreparedData(phrases = trainingData.labeledPhrases.map { _.phrase })
   }
 }
 
-class PreparedData(
-  val phrases : RDD[String],
-  val labeledPhrases: RDD[LabeledPhrase],
-  val labels : List[String]
-) extends Serializable
+class PreparedData(val phrases : RDD[String]) extends Serializable

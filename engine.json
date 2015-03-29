@@ -4,8 +4,7 @@
   "engineFactory": "org.template.vanilla.VanillaEngine",
   "sparkConf": {
     "org.deeplearning4j.scaleout.perform.models.word2vec": {
-      "negative": 0,
-      "length": 10
+      "negative": 0
     }
   },
   "datasource": {
@@ -15,9 +14,9 @@
   },
   "algorithms": [
     {
-      "name": "rnn",
+      "name": "nearestWords",
       "params": {
-        "inSize": 10
+        "nearestWordsQuantity": 10
       }
     }
   ]

@@ -2,7 +2,7 @@ import AssemblyKeys._
 
 assemblySettings
 
-name := "template-scala-parallel-dl4j-word2vec-rnn"
+name := "template-scala-spark-dl4j-word2vec"
 
 organization := "io.prediction"
 

@@ -13,9 +13,7 @@ def import_events(client, file):
         entity_type="phrase",
         entity_id=row["PhraseId"],
         properties= {
-          "sentenceId" : row["SentenceId"],
-          "phrase" : row["Phrase"],
-          "sentiment" : row["Sentiment"],
+          "phrase" : row["Phrase"]
         }
       )
       count += 1
