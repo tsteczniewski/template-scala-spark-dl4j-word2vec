@@ -8,7 +8,7 @@ import org.apache.spark.SparkContext
 import org.deeplearning4j.models.embeddings.WeightLookupTable
 import org.deeplearning4j.models.word2vec.Word2Vec
 import org.deeplearning4j.models.word2vec.wordstore.VocabCache
-import org.deeplearning4j.spark.models.word2vec.{Word2Vec => SparkWord2Vec}
+import org.deeplearning4j.spark.models.embeddings.word2vec.{Word2Vec => SparkWord2Vec}
 
 import scala.collection.JavaConversions._
 
