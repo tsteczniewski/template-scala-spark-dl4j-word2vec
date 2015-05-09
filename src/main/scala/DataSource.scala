@@ -23,10 +23,15 @@ class DataSource(val dsp: DataSourceParams)
       .aggregateProperties(
         appId = dsp.appId,
         entityType = "phrase",
-        required = Some(List("phrase")))(sc)
+        required = Some(List("sentenceId", "phrase", "sentiment")))(sc)
       .map({
         case (entityId, properties) =>
-          LabeledPhrase(phrase = properties.get[String]("phrase"))
+          LabeledPhrase(
+            phraseId = entityId.toInt,
+            sentenceId = properties.get[String]("sentenceId").toInt,
+            phrase = properties.get[String]("phrase"),
+            sentiment = properties.get[String]("sentiment").toInt
+          )
       })
 
     new TrainingData(eventsRDD)
@@ -34,7 +39,10 @@ class DataSource(val dsp: DataSourceParams)
 }
 
 case class LabeledPhrase(
-  phrase: String
+  phraseId: Int,
+  sentenceId: Int,
+  phrase: String,
+  sentiment: Int
 )
 
 class TrainingData(
